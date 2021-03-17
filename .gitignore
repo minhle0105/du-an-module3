@@ -2,7 +2,7 @@
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
-
+src/main/java/model/Service/DBConnection.java
 # Package Files #
 *.jar
 *.war

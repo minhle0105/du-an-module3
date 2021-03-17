@@ -59,3 +59,7 @@
     color: white;
     border-bottom: 1px solid white;
 }
+
+.input-group.flex-nowrap {
+    margin-bottom: 20px;
+}

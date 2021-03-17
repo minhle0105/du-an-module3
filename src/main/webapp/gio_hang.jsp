@@ -235,7 +235,7 @@
                     <span class="card-text" style="float: right">290.000 đồng</span><br/><br/><br/>
                     <span class="card-text" style="float: left">Thành tiền</span>
                     <span class="card-text" style="float: right">290.000 đồng</span><br/><br/>
-                    <a href="thanh-toan.jsp" class="btn btn-primary">Thanh Toán</a>
+                    <a href="thanh_toan.jsp" class="btn btn-primary">Thanh Toán</a>
                 </div>
             </div>
         </div>

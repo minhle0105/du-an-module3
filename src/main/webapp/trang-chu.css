@@ -1,0 +1,61 @@
+.navbar-brand {
+    transition: .4s all;
+}
+
+.row{
+    margin-bottom: 50px;
+}
+
+.navbar-brand:hover span {
+    border-bottom: 3px solid #1dbbb4;
+    font-size: 25px;
+    color: #1dbbb4;
+}
+
+.dropdown-toggle p {
+    margin-bottom: 0 !important;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+    border-bottom: 3px solid black;
+}
+
+.dropdown button{
+    color: white;
+}
+.carousel-item active img{
+    margin-right: 2px;
+}
+
+.dropdown span{
+    color: #edc096 !important;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.dropdown p{
+    color: black;
+    font-size: 20px;
+}
+
+.dropdown {
+    float: left;
+}
+
+.card{
+    margin-right: 10px;
+}
+
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+.col-md-2 a{
+    color: white;
+}
+.col-md-2:hover a{
+    color: white;
+    border-bottom: 1px solid white;
+}

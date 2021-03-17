@@ -1,15 +1,20 @@
 package model.Service;
 
 import model.Entity.Cart;
+import model.Entity.Product;
 import model.Entity.User;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserServiceImpl implements IUserService {
 
     private static final String SELECT_PASSWORD_BY_USERNAME = "select password from USER where username = ?;";
     private static final String INSERT_NEW_USER = "INSERT INTO USER VALUES (?,?,?,?,?,?,?);";
     private static final String UPDATE_USERS_SQL = "";
+    private static final String SELECTALLUSER = "SELECT * FROM USER";
+
 
     @Override
     public void addNewUser(User newUser) {
@@ -21,7 +26,6 @@ public class UserServiceImpl implements IUserService {
             preparedStatement.setString(5, newUser.getEmail());
             preparedStatement.setString(6, newUser.getAddress());
             preparedStatement.setInt(7, newUser.getCartId());
-            System.out.println(preparedStatement);
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             DBConnection.printSQLException(e);
@@ -57,5 +61,29 @@ public class UserServiceImpl implements IUserService {
     @Override
     public void updateUserPassword(User userChangePassword) {
 
+    }
+
+    @Override
+    public List<User> selectAllUser() throws SQLException {
+        List<User> list = new ArrayList<>();
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECTALLUSER);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                String username = rs.getString("username");
+                String password = rs.getString("password");
+                String firstname = rs.getString("firstname");
+                String lastname = rs.getString("lastname");
+                String email = rs.getString("email");
+                String address = rs.getString("address");
+                int cartid = rs.getInt("cartid");
+                list.add(new User(username,password,firstname,lastname,email,address,cartid));
+            }
+        }catch (SQLException ex){
+            DBConnection.printSQLException(ex);
+        }
+        return list;
     }
 }

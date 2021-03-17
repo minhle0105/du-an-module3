@@ -8,11 +8,12 @@ public class Cart {
     private double shipFee;
     private double totalAmount;
     List<Product> productList = new ArrayList<>();
-
-    public Cart(double shipfee, double amount) {
-        this.shipFee = shipfee;
-        this.totalAmount = amount;
+    public Cart(int cartId, double shipFee, double totalAmount) {
+        this.cartId = cartId;
+        this.shipFee = shipFee;
+        this.totalAmount = totalAmount;
     }
+
 
     public int getCartId() {
         return cartId;
@@ -38,11 +39,6 @@ public class Cart {
         this.totalAmount = totalAmount;
     }
 
-    public Cart(int cartId, double shipFee, double totalAmount) {
-        this.cartId = cartId;
-        this.shipFee = shipFee;
-        this.totalAmount = totalAmount;
-    }
 
     public Cart() {
     }

@@ -220,7 +220,7 @@
         <div class="col-md-2"></div>
     </div>
 </div>
-<form>
+<form action="/users?ac=login" method="post">
     <div class="container">
         <div class="loginform" style="margin-top: 10px">
             <div class="form-group" style="margin-top: 20%">

@@ -113,38 +113,23 @@
         </div>
     </div>
     <div class="signupform" style="width: 100%; border: 1px solid black; margin-top: 10px">
-        <div class="row" style="width: 100%; margin-top: 20px">
-            <div class="col-md-5 offset-3">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Đăng ký</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Tạo mật khẩu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Hoàn thành</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="row" style="width: 100%;">
-            <form action="users" method="post" style="margin-left: 28%">
+            <form action="users?ac=signup" method="post" style="margin-left: 28%">
                 <div class="form-group" style="margin-top: 20%">
-                    <input type="text" class="form-control" aria-describedby="emailHelp"
+                    <input type="text" name="signup_firstName" class="form-control" aria-describedby="emailHelp"
                            placeholder="Tên">
-                    <input type="text" class="form-control" aria-describedby="emailHelp"
+                    <input type="text" name="signup_lastName" class="form-control" aria-describedby="emailHelp"
                            placeholder="Họ">
-                    <input type="email" class="form-control" aria-describedby="emailHelp"
+                    <input type="email" name="signup_email" class="form-control" aria-describedby="emailHelp"
                            placeholder="Email">
-                    <input type="text" class="form-control" aria-describedby="emailHelp"
+                    <input type="text" name="signup_address" class="form-control" aria-describedby="emailHelp"
                            placeholder="Địa chỉ">
-                    <input type="text" class="form-control" aria-describedby="emailHelp"
+                    <input type="text" name="signup_userName" class="form-control" aria-describedby="emailHelp"
                            placeholder="Username">
                     <input type="password" name="signup_pwd" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                            placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-danger" style="width: 300px">Bước tiếp theo</button><br>
+                <button type="submit" class="btn btn-danger" style="width: 300px">Đăng kí tài khoản</button><br>
                 <a href="login.jsp" class="btn btn-link" style="margin-left: 15%">Quay về trang đăng nhập</a>
             </form>
         </div>

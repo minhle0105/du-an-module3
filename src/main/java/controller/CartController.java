@@ -19,13 +19,5 @@ public class CartController extends HttpServlet {
         if (action == null) {
             action = "";
         }
-        try {
-            switch (action){
-                case ""->{
-                }
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
     }
 }

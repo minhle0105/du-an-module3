@@ -1,5 +1,5 @@
 *.class
-
+src/main/java/model/Service/DBConnection.java
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 

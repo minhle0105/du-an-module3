@@ -47,12 +47,12 @@ public class UserController extends HttpServlet {
     }
 
     public void signupUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String userName = request.getParameter("");
-        String userPassword = request.getParameter("");
-        String userFirstName = request.getParameter("");
-        String userLastName = request.getParameter("");
-        String email = request.getParameter("");
-        String address = request.getParameter("");
+        String userName = request.getParameter("signup_userName");
+        String userPassword = request.getParameter("signup_pwd");
+        String userFirstName = request.getParameter("signup_firstName");
+        String userLastName = request.getParameter("signup_lastName");
+        String email = request.getParameter("signup_email");
+        String address = request.getParameter("signup_address");
         Cart newCart = new Cart();
         User newUser = new User(userName, userPassword, userFirstName, userLastName, email, address, newCart.getCartId());
         userService.addNewUser(newUser);

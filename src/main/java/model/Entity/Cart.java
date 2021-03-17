@@ -9,6 +9,11 @@ public class Cart {
     private double totalAmount;
     List<Product> productList = new ArrayList<>();
 
+    public Cart(double shipfee, double amount) {
+        this.shipFee = shipfee;
+        this.totalAmount = amount;
+    }
+
     public int getCartId() {
         return cartId;
     }

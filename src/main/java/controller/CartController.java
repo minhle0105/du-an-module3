@@ -15,17 +15,6 @@ public class CartController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("ac");
-        if (action == null) {
-            action = "";
-        }
-        try {
-            switch (action){
-                case ""->{
-                }
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+
     }
 }

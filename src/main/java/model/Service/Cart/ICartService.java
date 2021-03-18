@@ -1,4 +1,4 @@
-package model.Service;
+package model.Service.Cart;
 
 import model.Entity.Cart;
 

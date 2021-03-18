@@ -1,7 +1,7 @@
 package controller;
 
 import model.Entity.Product;
-import model.Service.ProductServiceImpl;
+import model.Service.Product.ProductServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -21,9 +21,9 @@ public class ProductController extends HttpServlet {
         }
         try {
             switch (action) {
-                case "create" -> insertProduct(request, response);
+                case "create" -> showAddForm(request, response);
                 case "delete" -> deleteProduct(request, response);
-                case "update" -> updateProduct(request,response);
+                case "update" -> showEditForm(request,response);
                 default -> showProduct(request,response);
             }
         } catch (SQLException ex) {
@@ -38,11 +38,24 @@ public class ProductController extends HttpServlet {
             action = "";
         }
         switch (action) {
-            case "create" -> insertProduct(request, response);
+            case "create" -> insertProduct(request,response);
             case "delete" -> deleteProduct(request, response);
             case "update" -> updateProduct(request,response);
         }
     }
+    private void showAddForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Product/createproduct.jsp");
+        dispatcher.forward(request,response);
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        int id = Integer.parseInt(request.getParameter("idupdate"));
+        Product product = productService.selectProductById(id);
+        request.setAttribute("product",product);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Product/editproduct.jsp");
+        dispatcher.forward(request,response);
+    }
+
     private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int idProduct = Integer.parseInt(request.getParameter("idProduct"));
         String nameProduct = request.getParameter("nameProduct");
@@ -53,20 +66,23 @@ public class ProductController extends HttpServlet {
         Product product = new Product(idProduct,nameProduct,quantity,price,discount,categoryId);
         try {
             productService.insertProduct(product);
+            response.sendRedirect("/productController");
+
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
     }
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("iddelete"));
         try {
             productService.deleteProduct(id);
+            response.sendRedirect("/productController");
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
     }
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        int id = Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("idproduct"));
         String nameProduct = request.getParameter("nameProduct");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         double price = Double.parseDouble(request.getParameter("price"));
@@ -74,7 +90,8 @@ public class ProductController extends HttpServlet {
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
         Product product = new Product(id,nameProduct,quantity,price,discount,categoryId);
         try {
-            productService.updateProduct(product);
+            productService.updateProduct(product,id);
+            response.sendRedirect("/productController");
         } catch (SQLException sqlException) {
             sqlException.printStackTrace();
         }
@@ -82,7 +99,7 @@ public class ProductController extends HttpServlet {
     private void showProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Product> list = productService.selectAllProduct();
         request.setAttribute("listProduct",list);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("quanlysanpham.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Product/quanlysanpham.jsp");
                 dispatcher.forward(request,response);
     }
 }

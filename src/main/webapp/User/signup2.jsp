@@ -2,13 +2,13 @@
   Created by IntelliJ IDEA.
   User: minhle
   Date: 3/14/21
-  Time: 15:07
+  Time: 14:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hoàn thành</title>
+    <title>Tạo mật khẩu</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -26,7 +26,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./trang-chu.css">
+    <link rel="stylesheet" href="../trang-chu.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 </head>
@@ -35,7 +35,7 @@
     <div id="header">
         <div class="row">
             <div class="col-md-3" name="logo">
-                <a href="trang-chu.jsp">
+                <a href="../trang-chu.jsp">
                     <img src="https://sablanca.vn/Images/logo_sab.png">
                 </a>
             </div>
@@ -113,8 +113,34 @@
             </div>
         </div>
     </div>
-    <div class="signupform"">
-        <a href="trang-chu.jsp" style="margin-left: 20%; margin-top: 20%" >Đăng ký thành công. Quay trở về trang chủ</a>
+    <div class="signupform" style="width: 100%; border: 1px solid black; margin-top: 10px">
+        <div class="row" style="width: 100%">
+            <div class="col-md-4 offset-3">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Đăng ký</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Tạo mật khẩu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Hoàn thành</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row" style="width: 100%;">
+            <form action="/users" method="post" style="margin-left: 28%">
+                <div class="form-group" style="margin-top: 20%">
+                    <input type="password" name="signup_pwd" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                           placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-danger" href="signup3.jsp" style="width: 300px">Bước tiếp theo</button><br>
+                <a href="signup.jsp" class="btn btn-link" style="margin-left: 15%">Quay về trang đăng ký</>
+            </form>
+        </div>
     </div>
+
+</div>
 </body>
 </html>

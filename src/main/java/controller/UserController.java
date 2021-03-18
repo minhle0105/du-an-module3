@@ -2,7 +2,7 @@ package controller;
 
 import model.Entity.Cart;
 import model.Entity.User;
-import model.Service.UserServiceImpl;
+import model.Service.User.UserServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -41,20 +41,21 @@ public class UserController extends HttpServlet {
         boolean correctUserInfo = userService.getPasswordByUsername(userName, userPassword);
         if (correctUserInfo) {
             if (userName.equals("admin") && userPassword.equals("admin")){
-                response.sendRedirect("quanlysanpham.jsp");
+                response.sendRedirect("/productController");
             }else {
-                response.sendRedirect("quanlytaikhoan.jsp");
+
+                response.sendRedirect("Product/quanlytaikhoan.jsp");
             }
         }
         else {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("User/login.jsp");
         }
     }
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> listUser = userService.selectAllUser();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/quanlytaikhoan.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("User/quanlytaikhoan.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -68,6 +69,6 @@ public class UserController extends HttpServlet {
         Cart newCart = new Cart(1,2000,2000);
         User newUser = new User(userName, userPassword, userFirstName, userLastName, email, address, newCart.getCartId());
         userService.addNewUser(newUser);
-        response.sendRedirect("/signup3.jsp");
+        response.sendRedirect("User/signup3.jsp");
     }
 }

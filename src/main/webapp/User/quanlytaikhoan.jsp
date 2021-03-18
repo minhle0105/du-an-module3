@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./trang-chu.css">
+    <link rel="stylesheet" href="../trang-chu.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 </head>
@@ -35,7 +35,7 @@
 <div id="header">
     <div class="row">
         <div class="col-md-3" name="logo">
-            <a href="trang-chu.jsp">
+            <a href="../trang-chu.jsp">
                 <img src="https://sablanca.vn/Images/logo_sab.png">
             </a>
         </div>
@@ -227,9 +227,7 @@
         <div class="col-md-8">
             <div class="jumbotron">
                     <h1 class="display-4">
-                        <c:forEach var="user" items="${listUser}">
                         <c:out value="${user.username}"></c:out>
-                        </c:forEach>
                     </h1>
                     <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
                     <hr class="my-4">
@@ -239,7 +237,6 @@
         </div>
         <div class="col-md-2"></div>
     </div>
-
 </div>
 </body>
 </html>

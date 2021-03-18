@@ -1,4 +1,4 @@
-package model.Service;
+package model.Service.User;
 
 import model.Entity.User;
 

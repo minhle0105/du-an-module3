@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./trang-chu.css">
+    <link rel="stylesheet" href="../trang-chu.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 </head>
@@ -35,7 +35,7 @@
 <center>
     <h1>Product Management</h1>
     <h2>
-        <a href="/productController?action=create">Add New Product</a>
+        <a href="/productController?ac=create">Add New Product</a>
     </h2>
 </center>
 <div align="center">
@@ -58,8 +58,8 @@
                 <td><c:out value="${product.discount}"/></td>
                 <td><c:out value="${product.categoryId}"/></td>
                 <td>
-                    <a href="/users?action=edit&id=${user.id}">Edit</a>
-                    <a href="/users?action=delete&id=${user.id}">Delete</a>
+                    <a href="/productController?ac=update&idupdate=${product.productId}">Update</a>
+                    <a href="/productController?ac=delete&iddelete=${product.productId}">Delete</a>
                 </td>
             </tr>
         </c:forEach>

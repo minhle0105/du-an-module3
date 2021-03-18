@@ -1,14 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
-  User: minhle
-  Date: 3/14/21
-  Time: 10:52
+  User: TTC
+  Date: 3/17/2021
+  Time: 9:50 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Log In</title>
+    <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
           integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
@@ -220,24 +221,25 @@
         <div class="col-md-2"></div>
     </div>
 </div>
-<form action="/users?ac=login" method="post" id="form_dangnhap">
-    <div class="container" style="margin-top: 10px">
-        <div class="loginform">
-            <div class="form-group" style="margin-top: 20%">
-                <label for="exampleInputUserName">UserName</label>
-                <input type="text" name="login_userName" class="form-control" id="exampleInputUserName" placeholder="UserName">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputPassword1">Mật khẩu</label>
-                <input type="password" name="login_pwd" class="form-control" id="exampleInputPassword1" placeholder="Password">
-            </div>
-            <div class="btns" style="margin-left: 45%;">
-                <button type="submit" class="btn btn-primary">Đăng nhập</button>
-                <a href="signup.jsp" class="btn btn-secondary">Đăng ký</a>
+<div id="content">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="jumbotron">
+                    <h1 class="display-4">
+                        <c:forEach var="user" items="${listUser}">
+                        <c:out value="${user.username}"></c:out>
+                        </c:forEach>
+                    </h1>
+                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <hr class="my-4">
+                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
             </div>
         </div>
+        <div class="col-md-2"></div>
     </div>
-</form>
 
+</div>
 </body>
 </html>

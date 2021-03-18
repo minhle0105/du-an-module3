@@ -50,7 +50,6 @@ public class CartServiceImpl {
             while (rs.next()) {
                 double shipfee = rs.getDouble("shipfee");
                 double amount = rs.getDouble("amount");
-                cart = new Cart(shipfee,amount);
             }
         }catch (SQLException e) {
             printSQLException(e);

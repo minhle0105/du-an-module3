@@ -1,6 +1,7 @@
-package model.Service;
+package model.Service.Cart;
 
 import model.Entity.Cart;
+import model.Service.DBConnection;
 
 import java.sql.*;
 
@@ -50,7 +51,6 @@ public class CartServiceImpl {
             while (rs.next()) {
                 double shipfee = rs.getDouble("shipfee");
                 double amount = rs.getDouble("amount");
-                cart = new Cart(shipfee,amount);
             }
         }catch (SQLException e) {
             printSQLException(e);

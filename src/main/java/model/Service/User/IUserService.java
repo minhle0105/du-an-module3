@@ -1,6 +1,9 @@
-package model.Service;
+package model.Service.User;
 
 import model.Entity.User;
+
+import java.sql.SQLException;
+import java.util.List;
 
 public interface IUserService {
 
@@ -12,5 +15,5 @@ public interface IUserService {
 
     void updateUserPassword (User userChangePassword);
 
-
+    List<User> selectAllUser() throws SQLException;
 }

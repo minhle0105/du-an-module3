@@ -1,11 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: TTC
-  Date: 3/12/2021
-  Time: 3:13 PM
+  Date: 3/19/2021
+  Time: 8:36 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
@@ -263,7 +264,7 @@
                     </a>
                 </div>
                 <div class="card">
-                    <a href="/productController?ac=show?id=1">
+                    <a href="/productshoeview.jsp">
                         <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
                              class="card-img-top" alt="...">
                         <div class="card-body">
@@ -313,193 +314,105 @@
     </div>
 </div>
 <div id="content">
-    <div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-3" style="font-size: 23px; color: red">
-                <span>SẢN PHẨM KHUYẾN MÃI</span>
-            </div>
-            <div class="col-md-5"></div>
-            <div class="col-md-2">
-                <a href="">
-                    <span style="color: black">Xem tất cả >></span>
-                </a>
-            </div>
-            <div class="col-md-1"></div>
+    <div class="card" style="width: 18rem;float: left">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><c:out value="${product.productName}"></c:out></h5>
+            <p class="card-text">Số lượng còn ở cửa hàng: <c:out value="${product.productQuantity}"></c:out></p>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="card-group">
-                    <div class="card">
-                        <a href="/tui-xach.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213830711567.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/giay-dep.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/balo-nu.jsp">
-                            <img src="https://cdn.sablanca.vn/ImageNews/Banner%2Ficon%2Fbalo.jpg" class="card-img-top"
-                                 alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/vi-camtay.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213943792165.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Giá gốc: <c:out value="${product.productPrice}"></c:out> đồng </li>
+            <li class="list-group-item">Giảm giá: <c:out value="${product.discount}"></c:out> đồng</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
         </div>
     </div>
-    <div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-3" style="font-size: 23px; color: red">
-                <span>SẢN PHẨM MỚI NHẤT</span>
-            </div>
-            <div class="col-md-5"></div>
-            <div class="col-md-2">
-                <a href="">
-                    <span style="color: black">Xem tất cả >></span>
-                </a>
-            </div>
-            <div class="col-md-1"></div>
+
+
+
+
+
+
+        <div class="card" style="width: 18rem;float: left">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="card-group">
-                    <div class="card">
-                        <a href="/tui-xach.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213830711567.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/giay-dep.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/balo-nu.jsp">
-                            <img src="https://cdn.sablanca.vn/ImageNews/Banner%2Ficon%2Fbalo.jpg" class="card-img-top"
-                                 alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/vi-camtay.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213943792165.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
         </div>
     </div>
-    <div>
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-3" style="font-size: 23px; color: red">
-                <span>SẢN PHẨM BÁN CHẠY NHẤT</span>
-            </div>
-            <div class="col-md-5"></div>
-            <div class="col-md-2">
-                <a href="">
-                    <span style="color: black">Xem tất cả >></span>
-                </a>
-            </div>
-            <div class="col-md-1"></div>
+    <div class="card" style="width: 18rem;float: left">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
-                <div class="card-group">
-                    <div class="card">
-                        <a href="/tui-xach.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213830711567.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/giay-dep.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/balo-nu.jsp">
-                            <img src="https://cdn.sablanca.vn/ImageNews/Banner%2Ficon%2Fbalo.jpg" class="card-img-top"
-                                 alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="/vi-camtay.jsp">
-                            <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213943792165.jpg"
-                                 class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Guốc xuồng xỏ ngón phối plastic GX0005</h5>
-                                <h6>Giá: 299,000 đồng</h6>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-2"></div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;float: left">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;float: left">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        <div class="card-body">
+            <a href="#" class="card-link">Card link</a>
+            <a href="#" class="card-link">Another link</a>
         </div>
     </div>
 </div>

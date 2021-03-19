@@ -34,7 +34,7 @@
 <div id="header">
     <div class="row">
         <div class="col-md-3" name="logo">
-            <a href="/tus.jsp">
+            <a href="/trang-chu.jsp">
                 <img src="https://sablanca.vn/Images/logo_sab.png">
             </a>
         </div>
@@ -82,7 +82,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="User/login.jsp">
+                <a class="navbar-brand" href="login.jsp">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-person-square" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
@@ -263,7 +263,7 @@
                     </a>
                 </div>
                 <div class="card">
-                    <a href="/giay-dep.jsp">
+                    <a href="/productController?ac=show?id=1">
                         <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
                              class="card-img-top" alt="...">
                         <div class="card-body">

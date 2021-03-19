@@ -44,18 +44,18 @@ public class UserController extends HttpServlet {
                 response.sendRedirect("/productController");
             }else {
 
-                response.sendRedirect("Product/quanlytaikhoan.jsp");
+                response.sendRedirect("quanlytaikhoan.jsp");
             }
         }
         else {
-            response.sendRedirect("User/login.jsp");
+            response.sendRedirect("login.jsp");
         }
     }
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         List<User> listUser = userService.selectAllUser();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("User/quanlytaikhoan.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("quanlytaikhoan.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -69,6 +69,6 @@ public class UserController extends HttpServlet {
         Cart newCart = new Cart(1,2000,2000);
         User newUser = new User(userName, userPassword, userFirstName, userLastName, email, address, newCart.getCartId());
         userService.addNewUser(newUser);
-        response.sendRedirect("User/signup3.jsp");
+        response.sendRedirect("signup3.jsp");
     }
 }

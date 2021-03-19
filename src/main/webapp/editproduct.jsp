@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../trang-chu.css">
+    <link rel="stylesheet" href="trang-chu.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 </head>
@@ -35,56 +35,58 @@
 <center>
     <h1>Product Management</h1>
     <h2>
-        <a href="/productController?ac=create;">List All Product</a>
+        <a href="/productController?ac=;">List All Product</a>
     </h2>
 </center>
 <div align="center">
-    <form method="post" action="/productController?ac=create">
+    <form method="post" action="/productController?ac=update">
         <table border="1" cellpadding="5">
             <caption>
-                <h2>Add New Product</h2>
+                <h2>Edit Product Form</h2>
             </caption>
-            <tr>
-                <th>Product ID:</th>
-                <td>
-                    <input type="text" name="idProduct" id="id" size="45"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Product Name:</th>
-                <td>
-                    <input type="text" name="nameProduct" id="name" size="45"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Quantity</th>
-                <td>
-                    <input type="text" name="quantity" id="quantity" size="15"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Price</th>
-                <td>
-                    <input type="text" name="price" id="price" size="15"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Discount</th>
-                <td>
-                    <input type="text" name="discount" id="discount" size="15"/>
-                </td>
-            </tr>
-            <tr>
-                <th>Category ID</th>
-                <td>
-                    <input type="text" name="categoryId" id="categoryId" size="15"/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
-                </td>
-            </tr>
+                <tr>
+                    <th>Product ID:</th>
+                    <td>
+                        <input type="text" name="idproduct" id="id" size="45" value="${product.productId}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Product Name:</th>
+                    <td>
+                        <input type="text" name="nameProduct" id="name" size="45" value="${product.productName}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <td>
+                        <input type="text" name="quantity" id="quantity" size="15" value="${product.productQuantity}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>
+                        <input type="text" name="price" id="price" size="15" value="${product.productPrice}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Discount</th>
+                    <td>
+                        <input type="text" name="discount" id="discount" size="15" value="${product.discount}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Category ID</th>
+                    <td>
+                        <input type="text" name="categoryId" id="categoryId" size="15" value="${product.categoryId}"/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="submit" value="Save"/>
+                    </td>
+                </tr>
+
         </table>
     </form>
 </div>

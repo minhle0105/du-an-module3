@@ -26,7 +26,7 @@ public class ProductController extends HttpServlet {
                 case "update" -> showEditForm(request,response);
                 case "show" -> {
                     try {
-                        showProductById(request,response);
+                        showProductByCategory(request,response);
                     } catch (SQLException sqlException) {
                         sqlException.printStackTrace();
                     }
@@ -64,6 +64,14 @@ public class ProductController extends HttpServlet {
         dispatcher.forward(request,response);
     }
 
+    private void showProductByCategory(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException, SQLException{
+        int id = Integer.parseInt(request.getParameter("id"));
+        List<Product> products = productService.selectProductByCategory(id);
+        request.setAttribute("products",products);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("productshoeview.jsp");
+        dispatcher.forward(request,response);
+    }
+
     private void insertProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         int idProduct = Integer.parseInt(request.getParameter("idProduct"));
         String nameProduct = request.getParameter("nameProduct");
@@ -71,7 +79,8 @@ public class ProductController extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         double discount = Double.parseDouble(request.getParameter("discount"));
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        Product product = new Product(idProduct,nameProduct,quantity,price,discount,categoryId);
+        String imglink = request.getParameter("imglink");
+        Product product = new Product(idProduct,nameProduct,quantity,price,discount,categoryId,imglink);
         try {
             productService.insertProduct(product);
             response.sendRedirect("/productController");
@@ -96,7 +105,8 @@ public class ProductController extends HttpServlet {
         double price = Double.parseDouble(request.getParameter("price"));
         double discount = Double.parseDouble(request.getParameter("discount"));
         int categoryId = Integer.parseInt(request.getParameter("categoryId"));
-        Product product = new Product(id,nameProduct,quantity,price,discount,categoryId);
+        String imglink = request.getParameter("imglink");
+        Product product = new Product(id,nameProduct,quantity,price,discount,categoryId,imglink);
         try {
             productService.updateProduct(product,id);
             response.sendRedirect("/productController");

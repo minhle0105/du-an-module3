@@ -7,6 +7,15 @@ public class Product {
     private double productPrice;
     private double discount;
     private int categoryId;
+    private String imglink;
+
+    public String getImglink() {
+        return imglink;
+    }
+
+    public void setImglink(String imglink) {
+        this.imglink = imglink;
+    }
 
     public int getProductId() {
         return productId;
@@ -56,13 +65,14 @@ public class Product {
         this.categoryId = categoryId;
     }
 
-    public Product(int productId, String productName, int productQuantity, double productPrice, double discount, int categoryId) {
+    public Product(int productId, String productName, int productQuantity, double productPrice, double discount, int categoryId,String imglink) {
         this.productId = productId;
         this.productName = productName;
         this.productQuantity = productQuantity;
         this.productPrice = productPrice;
         this.discount = discount;
         this.categoryId = categoryId;
+        this.imglink = imglink;
     }
 
     public Product() {

@@ -12,11 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductServiceImpl implements IProductService {
-    private static final String INSERT_NEW_PRODUCT = "INSERT INTO product VALUES (?,?,?,?,?,?);";
+    private static final String INSERT_NEW_PRODUCT = "INSERT INTO product VALUES (?,?,?,?,?,?,?);";
     private static final String DELETE_PRODUCT = "DELETE FROM product where productid=?;";
-    private static final String UPDATE_PRODUCT_SQL = "UPDATE product set productname=?,quantity=?,price=?,discount=?,categoryid=? where productid=?;";
+    private static final String UPDATE_PRODUCT_SQL = "UPDATE product set productname=?,quantity=?,price=?,discount=?,categoryid=?,imglink=? where productid=?;";
     private static final String SELECT_ALLPRODUCT = "SELECT * from product;";
     private static final String SELECTPRODUCT_BYID = "SELECT * from product WHERE productid=?;";
+    private static final String SELECTPRODUCT_BYCATEGORY = "SELECT * from product WHERE categoryid = ?;";
 
 
     @Override
@@ -30,6 +31,7 @@ public class ProductServiceImpl implements IProductService {
             preparedStatement.setDouble(4, product.getProductPrice());
             preparedStatement.setDouble(5, product.getDiscount());
             preparedStatement.setInt(6, product.getCategoryId());
+            preparedStatement.setString(7,product.getImglink());
             preparedStatement.executeUpdate();
         }catch (SQLException ex){
             DBConnection.printSQLException(ex);
@@ -51,7 +53,30 @@ public class ProductServiceImpl implements IProductService {
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
                 int categoryid = rs.getInt("categoryid");
-                product = new Product(id,productname,quantity,price,discount,categoryid);
+                String imglink = rs.getString("imglink");
+                product = new Product(id,productname,quantity,price,discount,categoryid,imglink);
+            }
+        }catch (SQLException ex){
+            DBConnection.printSQLException(ex);
+        }
+        return product;
+    }
+    public List<Product> selectProductByCategory(int categoryid) throws SQLException {
+        List<Product> product = new ArrayList<>();
+        try {
+            Connection connection = DBConnection.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(SELECTPRODUCT_BYCATEGORY);
+            preparedStatement.setInt(1,categoryid);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                int productid = rs.getInt("productid");
+                String productname = rs.getString("productname");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                double discount = rs.getDouble("discount");
+                String imglink = rs.getString("imglink");
+                product.add(new Product(productid,productname,quantity,price,discount,categoryid,imglink));
             }
         }catch (SQLException ex){
             DBConnection.printSQLException(ex);
@@ -74,7 +99,8 @@ public class ProductServiceImpl implements IProductService {
                 double price = rs.getDouble("price");
                 double discount = rs.getDouble("discount");
                 int categoryid = rs.getInt("categoryid");
-                list.add(new Product(id,productname,quantity,price,discount,categoryid));
+                String imglink = rs.getString("imglink");
+                list.add(new Product(id,productname,quantity,price,discount,categoryid,imglink));
             }
         }catch (SQLException ex){
             DBConnection.printSQLException(ex);
@@ -108,6 +134,7 @@ public class ProductServiceImpl implements IProductService {
             preparedStatement.setDouble(4, product.getDiscount());
             preparedStatement.setInt(5, product.getCategoryId());
             preparedStatement.setInt(6,id);
+            preparedStatement.setString(7, product.getImglink());
             update = preparedStatement.executeUpdate() > 0;
         }catch (SQLException ex){
             DBConnection.printSQLException(ex);

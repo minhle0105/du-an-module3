@@ -43,7 +43,6 @@ public class UserController extends HttpServlet {
             if (userName.equals("admin") && userPassword.equals("admin")){
                 response.sendRedirect("/productController");
             }else {
-
                 response.sendRedirect("quanlytaikhoan.jsp");
             }
         }

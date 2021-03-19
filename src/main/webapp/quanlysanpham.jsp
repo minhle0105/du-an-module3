@@ -236,6 +236,7 @@
             <th>Price</th>
             <th>Discount</th>
             <th>Category ID</th>
+            <th>IMG LINK</th>
         </tr>
         <c:forEach var="product" items="${listProduct}">
             <tr>
@@ -245,10 +246,11 @@
                 <td><c:out value="${product.productPrice}"/></td>
                 <td><c:out value="${product.discount}"/></td>
                 <td><c:out value="${product.categoryId}"/></td>
+                <td><c:out value="${product.imglink}"/></td>
                 <td>
                     <a href="/productController?ac=update&idupdate=${product.productId}">Update</a>
+                    <button type="button" class="btn btn-outline-warning">Warning</button>
                     <a href="/productController?ac=delete&iddelete=${product.productId}">Delete</a>
-                    <a href="/productController?ac=show&idshow=${product.productId}">Show on page</a>
                 </td>
             </tr>
         </c:forEach>

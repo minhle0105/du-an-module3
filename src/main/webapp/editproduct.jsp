@@ -80,6 +80,12 @@
                         <input type="text" name="categoryId" id="categoryId" size="15" value="${product.categoryId}"/>
                     </td>
                 </tr>
+                <tr>
+                    <th>IMG LINK</th>
+                    <td>
+                        <input type="text" name="imglink" id="imglink" size="15" value="${product.imglink}"/>
+                    </td>
+                </tr>
 
                 <tr>
                     <td colspan="2" align="center">

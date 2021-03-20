@@ -10,4 +10,5 @@ public interface IProductService {
     boolean deleteProduct(int id) throws SQLException;
     boolean updateProduct(Product product,int id) throws SQLException;
     List<Product> sortedProductByName() throws SQLException;
+    List<Product> searchProduct(String productname) throws SQLException;
 }

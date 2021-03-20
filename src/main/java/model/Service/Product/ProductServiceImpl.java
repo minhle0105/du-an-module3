@@ -19,6 +19,7 @@ public class ProductServiceImpl implements IProductService {
     private static final String SELECTPRODUCT_BYID = "SELECT * from product WHERE productid=?;";
     private static final String SELECTPRODUCT_BYCATEGORY = "SELECT * from product WHERE categoryid = ?;";
     private static final String SORT_BY_NAME="SELECT * FROM product order by productname";
+    private static final String SEARCH_ALL_PRODUCT_BY_NAME="SELECT * FROM product where productname like ?";
 
 
     @Override
@@ -134,8 +135,9 @@ public class ProductServiceImpl implements IProductService {
             preparedStatement.setDouble(3, product.getProductPrice());
             preparedStatement.setDouble(4, product.getDiscount());
             preparedStatement.setInt(5, product.getCategoryId());
-            preparedStatement.setInt(6,id);
-            preparedStatement.setString(7, product.getImglink());
+            preparedStatement.setString(6, product.getImglink());
+            preparedStatement.setInt(7,id);
+
             update = preparedStatement.executeUpdate() > 0;
         }catch (SQLException ex){
             DBConnection.printSQLException(ex);
@@ -162,5 +164,27 @@ public class ProductServiceImpl implements IProductService {
             }
         }
         return sortedProductList;
+    }
+
+    public List<Product> searchProduct(String productname) throws SQLException {
+        List<Product> productList=new ArrayList<>();
+        try(
+                Connection connection = DBConnection.getConnection();
+                PreparedStatement preparedStatement=connection.prepareStatement(SEARCH_ALL_PRODUCT_BY_NAME);){
+            productname = "%"+productname+"%";
+            preparedStatement.setString(1,productname);
+            ResultSet rs=preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("productid");
+                String name = rs.getString("productname");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                double discount = rs.getDouble("discount");
+                int categoryid = rs.getInt("categoryid");
+                String imglink = rs.getString("imglink");
+                productList.add(new Product(id,name,quantity,price,discount,categoryid,imglink));
+            }
+        }
+        return productList;
     }
 }

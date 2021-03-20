@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Title</title>
@@ -34,7 +35,7 @@
 <div id="header">
     <div class="row">
         <div class="col-md-3" name="logo">
-            <a href="/tus.jsp">
+            <a href="/trang-chu.jsp">
                 <img src="https://sablanca.vn/Images/logo_sab.png">
             </a>
         </div>
@@ -263,7 +264,7 @@
                     </a>
                 </div>
                 <div class="card">
-                    <a href="/giay-dep.jsp">
+                    <a href="/productController?ac=show&id=1">
                         <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
                              class="card-img-top" alt="...">
                         <div class="card-body">
@@ -272,7 +273,7 @@
                     </a>
                 </div>
                 <div class="card">
-                    <a href="/balo-nu.jsp">
+                    <a href="/productController?ac=show&id=4">
                         <img src="https://cdn.sablanca.vn/ImageNews/Banner%2Ficon%2Fbalo.jpg" class="card-img-top"
                              alt="...">
                         <div class="card-body">
@@ -299,7 +300,7 @@
                     </a>
                 </div>
                 <div class="card">
-                    <a href="/sandals.jsp">
+                    <a href="/productController?ac=show&id=2">
                         <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220214013683534.jpg"
                              class="card-img-top" alt="...">
                         <div class="card-body">

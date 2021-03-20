@@ -1,8 +1,8 @@
-package model.Service;
+package model.Service.User;
 
-import model.Entity.Cart;
-import model.Entity.Product;
 import model.Entity.User;
+import model.Service.DBConnection;
+import model.Service.User.IUserService;
 
 import java.sql.*;
 import java.util.ArrayList;

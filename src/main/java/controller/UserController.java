@@ -2,7 +2,7 @@ package controller;
 
 import model.Entity.Cart;
 import model.Entity.User;
-import model.Service.UserServiceImpl;
+import model.Service.User.UserServiceImpl;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -35,15 +35,18 @@ public class UserController extends HttpServlet {
         }
     }
 
-    public void loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    public void loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        HttpSession session = request.getSession();
         String userName = request.getParameter("login_userName");
         String userPassword = request.getParameter("login_pwd");
         boolean correctUserInfo = userService.getPasswordByUsername(userName, userPassword);
         if (correctUserInfo) {
             if (userName.equals("admin") && userPassword.equals("admin")){
-                response.sendRedirect("quanlysanpham.jsp");
+                response.sendRedirect("/productController");
             }else {
-                response.sendRedirect("quanlytaikhoan.jsp");
+                session.setAttribute("userName",userName);
+                session.setAttribute("userPassword",userPassword);
+                request.getRequestDispatcher("/quanlytaikhoan.jsp").forward(request,response);
             }
         }
         else {
@@ -54,7 +57,7 @@ public class UserController extends HttpServlet {
             throws SQLException, IOException, ServletException {
         List<User> listUser = userService.selectAllUser();
         request.setAttribute("listUser", listUser);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/quanlytaikhoan.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("quanlytaikhoan.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -68,6 +71,6 @@ public class UserController extends HttpServlet {
         Cart newCart = new Cart(1,2000,2000);
         User newUser = new User(userName, userPassword, userFirstName, userLastName, email, address, newCart.getCartId());
         userService.addNewUser(newUser);
-        response.sendRedirect("/signup3.jsp");
+        response.sendRedirect("signup3.jsp");
     }
 }

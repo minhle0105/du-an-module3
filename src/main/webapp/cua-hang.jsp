@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Tuan
-  Date: 3/17/2021
-  Time: 11:32 AM
+  User: TTC
+  Date: 3/20/2021
+  Time: 1:59 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+<h1>Chúng tôi đéo có cửa hàng!</h1>
 </body>
 </html>

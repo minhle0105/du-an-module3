@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
   User: TTC
-  Date: 3/17/2021
-  Time: 9:50 PM
+  Date: 3/19/2021
+  Time: 8:36 AM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
             integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="trang-chu.css">
+    <link rel="stylesheet" href="./trang-chu.css">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
 </head>
@@ -35,7 +35,7 @@
 <div id="header">
     <div class="row">
         <div class="col-md-3" name="logo">
-            <a href="trang-chu.jsp">
+            <a href="/trang-chu.jsp">
                 <img src="https://sablanca.vn/Images/logo_sab.png">
             </a>
         </div>
@@ -96,7 +96,7 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="gio-hang.jsp">
+                <a class="navbar-brand" href="/gio_hang.jsp">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                          class="bi bi-cart4" viewBox="0 0 16 16">
                         <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
@@ -220,23 +220,120 @@
         </div>
         <div class="col-md-2"></div>
     </div>
-</div>
-<div id="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="carouselExample1" class="carousel slide z-depth-1-half" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100"
+                             src="https://cdn.sablanca.vn/ImageAdvs/new-arrival-moi-20210309093819.jpg"
+                             alt="First slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100" src="https://cdn.sablanca.vn/ImageAdvs/sale-md-20210203100309.jpg"
+                             alt="Second slide">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block w-100"
+                             src="https://cdn.sablanca.vn/ImageAdvs/new-arrival-moi-20210309093819.jpg"
+                             alt="Third slide">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExample1" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample1" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="jumbotron">
-                    <h1 class="display-4">
-                        Xin chào <%=session.getAttribute("userName")%>!
-                    </h1>
-                    <p class="lead">Bạn đã đến với website bán hàng xịn xò nhất cái vũ trụ này</p>
-                    <hr class="my-4">
-                    <p>Bạn muốn đặt hàng thì gọi vào số này 091754295. Chúng tôi không có giỏ hàng đâu!</p>
-                    <a class="btn btn-primary btn-lg" href="/trang-chu.jsp" role="button">Trở về trang chủ tiếp tục mua sắm</a>
+            <div class="card-group">
+                <div class="card">
+                    <a href="/tui-xach.jsp">
+                        <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213830711567.jpg"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <center><h5 class="card-title">TÚI XÁCH</h5></center>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/productController?ac=show&id=1">
+                        <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213855307172.jpg"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <center><h5 class="card-title">GIÀY DÉP</h5></center>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/productController?ac=show&id=4">
+                        <img src="https://cdn.sablanca.vn/ImageNews/Banner%2Ficon%2Fbalo.jpg" class="card-img-top"
+                             alt="...">
+                        <div class="card-body">
+                            <center><h5 class="card-title">BALO NỮ</h5></center>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/vi-camtay.jsp">
+                        <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220213943792165.jpg"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <center><h5 class="card-title">VÍ CẦM TAY</h5></center>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/matkinh-nu.jsp">
+                        <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220214006214800.jpg"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <center><h5 class="card-title">MẮT KÍNH NỮ</h5></center>
+                        </div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="/productController?ac=show&id=2">
+                        <img src="https://cdn.sablanca.vn/SmallBannerImage/smallbanner_020220214013683534.jpg"
+                             class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <center><h5 class="card-title">SANDALS</h5></center>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
         <div class="col-md-2"></div>
     </div>
+</div>
+<div id="content">
+    <c:forEach var="product" items="${products}">
+        <div class="card" style="width: 18rem;float: left">
+            <img src="<c:out value="${product.imglink}"></c:out>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><c:out value="${product.productName}"></c:out></h5>
+                <p class="card-text">Số lượng còn ở cửa hàng: <c:out value="${product.productQuantity}"></c:out></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Giá gốc: <c:out value="${product.productPrice}"></c:out> đồng </li>
+                <li class="list-group-item">Giảm giá: <c:out value="${product.discount}"></c:out> đồng</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </c:forEach>
+</div>
+<div class="row" style="width: 100%;height: 500px">
+
 </div>
 </body>
 </html>

@@ -81,6 +81,12 @@
                 </td>
             </tr>
             <tr>
+                <th>IMG Link</th>
+                <td>
+                    <input type="text" name="imglink" id="imglink" size="15"/>
+                </td>
+            </tr>
+            <tr>
                 <td colspan="2" align="center">
                     <input type="submit" value="Save"/>
                 </td>

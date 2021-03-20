@@ -227,12 +227,12 @@
         <div class="col-md-8">
             <div class="jumbotron">
                     <h1 class="display-4">
-                        <c:out value="${user.username}"></c:out>
+                        Xin chào <%=session.getAttribute("userName")%>!
                     </h1>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+                    <p class="lead">Bạn đã đến với website bán hàng xịn xò nhất cái vũ trụ này</p>
                     <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                    <p>Bạn muốn đặt hàng thì gọi vào số này 091754295. Chúng tôi không có giỏ hàng đâu!</p>
+                    <a class="btn btn-primary btn-lg" href="/trang-chu.jsp" role="button">Trở về trang chủ tiếp tục mua sắm</a>
             </div>
         </div>
         <div class="col-md-2"></div>

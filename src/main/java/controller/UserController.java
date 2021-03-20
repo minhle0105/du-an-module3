@@ -35,7 +35,8 @@ public class UserController extends HttpServlet {
         }
     }
 
-    public void loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+    public void loginUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
+        HttpSession session = request.getSession();
         String userName = request.getParameter("login_userName");
         String userPassword = request.getParameter("login_pwd");
         boolean correctUserInfo = userService.getPasswordByUsername(userName, userPassword);
@@ -43,7 +44,9 @@ public class UserController extends HttpServlet {
             if (userName.equals("admin") && userPassword.equals("admin")){
                 response.sendRedirect("/productController");
             }else {
-                response.sendRedirect("quanlytaikhoan.jsp");
+                session.setAttribute("userName",userName);
+                session.setAttribute("userPassword",userPassword);
+                request.getRequestDispatcher("/quanlytaikhoan.jsp").forward(request,response);
             }
         }
         else {

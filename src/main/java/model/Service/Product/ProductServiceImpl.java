@@ -18,6 +18,7 @@ public class ProductServiceImpl implements IProductService {
     private static final String SELECT_ALLPRODUCT = "SELECT * from product;";
     private static final String SELECTPRODUCT_BYID = "SELECT * from product WHERE productid=?;";
     private static final String SELECTPRODUCT_BYCATEGORY = "SELECT * from product WHERE categoryid = ?;";
+    private static final String SORT_BY_NAME="SELECT * FROM product order by productname";
 
 
     @Override
@@ -142,4 +143,24 @@ public class ProductServiceImpl implements IProductService {
         return update;
     }
 
+    public List<Product> sortedProductByName() throws SQLException {
+        List<Product> sortedProductList =new ArrayList<>();
+        try(
+                Connection connection= DBConnection.getConnection();
+                PreparedStatement preparedStatement=connection.prepareStatement(SORT_BY_NAME);){
+
+            ResultSet rs= preparedStatement.executeQuery();
+            while (rs.next()){
+                int id = rs.getInt("productid");
+                String productname = rs.getString("productname");
+                int quantity = rs.getInt("quantity");
+                double price = rs.getDouble("price");
+                double discount = rs.getDouble("discount");
+                int categoryid = rs.getInt("categoryid");
+                String imglink = rs.getString("imglink");
+                sortedProductList.add(new Product(id,productname,quantity,price,discount,categoryid,imglink));
+            }
+        }
+        return sortedProductList;
+    }
 }

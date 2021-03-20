@@ -31,6 +31,10 @@ public class ProductController extends HttpServlet {
                         sqlException.printStackTrace();
                     }
                 }
+                case "sort" ->{
+                    sortProductByName(request,response);
+                }
+
                 default -> showProduct(request,response);
             }
         } catch (SQLException ex) {
@@ -51,6 +55,13 @@ public class ProductController extends HttpServlet {
 
         }
     }
+    protected void sortProductByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        List<Product> sortedProduct=productService.sortedProductByName();
+        RequestDispatcher dispatcher=request.getRequestDispatcher("quanlysanpham.jsp");
+        request.setAttribute("listProduct",sortedProduct);
+        dispatcher.forward(request,response);
+    }
+
     private void showAddForm(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         RequestDispatcher dispatcher = request.getRequestDispatcher("createproduct.jsp");
         dispatcher.forward(request,response);

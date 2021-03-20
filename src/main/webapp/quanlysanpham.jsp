@@ -41,8 +41,8 @@
         </div>
         <div class="col-md-3" name="search-box">
             <nav class="navbar navbar-light ">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Bạn cần tìm gì?" aria-label="Search">
+                <form class="form-inline" method="post" action="/productController?ac=search">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Bạn cần tìm gì?" aria-label="Search" name="productname">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
             </nav>

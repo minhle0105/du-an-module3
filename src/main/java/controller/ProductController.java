@@ -52,9 +52,23 @@ public class ProductController extends HttpServlet {
             case "create" -> insertProduct(request,response);
             case "delete" -> deleteProduct(request, response);
             case "update" -> updateProduct(request,response);
-
+            case "search" -> {
+                try {
+                    searchProduct(request,response);
+                } catch (SQLException sqlException) {
+                    sqlException.printStackTrace();
+                }
+            }
         }
     }
+    protected void searchProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
+        String productname=request.getParameter("productname");
+        List<Product> productList= (List<Product>) productService.searchProduct(productname);
+        request.setAttribute("searching",productList);
+        RequestDispatcher dispatcher=request.getRequestDispatcher("searchProduct.jsp");
+        dispatcher.forward(request,response);
+    }
+
     protected void sortProductByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Product> sortedProduct=productService.sortedProductByName();
         RequestDispatcher dispatcher=request.getRequestDispatcher("quanlysanpham.jsp");
@@ -128,7 +142,7 @@ public class ProductController extends HttpServlet {
     private void showProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
         List<Product> list = productService.selectAllProduct();
         request.setAttribute("listProduct",list);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("quanlysanpham.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/quanlysanpham.jsp");
                 dispatcher.forward(request,response);
     }
 
